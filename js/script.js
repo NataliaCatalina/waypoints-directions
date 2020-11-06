@@ -9,6 +9,44 @@ $(document).ready(function(){
 
 function initMap() {
 
+  // date calculation
+  $('#startDate').datepicker({
+    dateFormat : 'yy-mm-dd',
+    changeMonth : true,
+    minDate :new Date(),
+    maxDate : '+1y',
+    onSelect : function(date){
+      var selectDate = new Date(date);
+      var msecInADay  = 86400000;
+      var stDate = new Date(selectDate.getTime() + msecInADay);
+
+      $('#endDate').datepicker('option', 'minDate', stDate);
+      var enDate = new Date(selectDate.getTime() + 10 * msecInADay);
+
+      $('#endDate').datepicker('option', 'maxDate', enDate);
+
+    }
+
+  });
+
+  $('#endDate').datepicker({
+    dateFormat : 'yy-mm-dd',
+    changeMonth : true
+  });
+
+  $('#calculateDays').click(function(){
+    dateDiff();
+  });
+
+function dateDiff(){
+  var start = $(startDate).datepicker('getDate');
+  var end = $(endDate).datepicker('getDate');
+
+  var days = (end-start)/1000/60/60/24; //to get human readable days
+  $('#days').val(days);
+
+}
+
   //////////////////////////////////////////////////////////////////////////
         //from autocomplete
         var start = new google.maps.places.Autocomplete(

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
 
     <title>Waypoints in Directions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/hot-sneaks/jquery-ui.min.css" integrity="sha512-XSPu9VO1NAgShBZz61kFPLg+rQYtl2j5igRLYrYW6aYIVoDdvuPts85Okec8IRLBzc5wZAv7wMiUENqxhMMYdA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css">
 
   </head>
@@ -14,6 +15,24 @@
     <div id="map"></div>
 
     <div id="right-panel">
+      <!-- date calculation using jquery ui calendar -->
+      <h4 class="text-info"> Dates of my journey </h4>
+
+      <label for="startDate">Enter your start date</label>
+      <input id="startDate" class="form-control" type="text">
+
+      <label for="endDate">Enter your end date</label>
+      <input id="endDate" class="form-control" type="text">
+
+      <input id="calculateDays" type="button" name="" value="Calculate Days" class="btn btn-lg btn-dark text-light my-2">
+
+      <!-- result of calculated days -->
+      <label for="">Number of days</label>
+      <input id="days" type="text">
+
+      <hr id="places" class="bg-info"/>
+
+
       <div>
 
         <b>Start:</b>
@@ -26,7 +45,7 @@
         <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br />
         <select multiple id="waypoints">
           <option value="Hamilton, NZ">Hamilton, NZ</option>
-          <option value="Taupo, NZ">Taupo, NZ</option>
+          <option value="Cambridge, NZ">Taupo, NZ</option>
           <option value="Hawke's Bay, NZ">Hawke's Bay, NZ</option>
           <option value="Rororua, NZ">Rororua, NZ</option>
         </select>
@@ -51,9 +70,10 @@
 
 
   <!-- use downloaded minified version for google maps to work -->
-   <script src="jquery-3.5.1.min.js">
+   <script src="jquery-3.5.1.min.js"></script>
 
-   </script>
+   <!-- jqueryui -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
 
    <!-- jquery cdn minified version for google maps to work is an option if not using downloaded one -->
    <!-- <script
